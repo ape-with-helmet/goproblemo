@@ -17,8 +17,8 @@ func ispalindrome(n int) bool {
 func largestpalindromeproduct(n int) (int,int,int){
 	largestPalindrome:=0
 	var multiplicant1, multiplicant2 int
-	for i := n; i >= 1; i-- {
-		for j := i; j >= 1; j-- {
+	for i := n; i >= 10; i-- {
+		for j := i; j >= 10; j-- {
 			product:=i*j
 			if product<largestPalindrome{
 				break
