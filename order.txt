@@ -1,0 +1,4 @@
+1. even fibonacci
+2. largest prime factor
+3. largest palindrome
+4. special pythogorean triplet
