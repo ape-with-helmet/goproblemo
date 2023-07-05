@@ -14,9 +14,25 @@ type Post struct{
 }
 func main(){
 	url:="https://jsonplaceholder.typicode.com/posts/1"
-	response.err:=http.Get(url)
+	response,err:=http.Get(url)
 	if err!=nil{
-		fmt.printf("HTTTP GET request failed: %s\n",err);
-		
+		fmt.Printf("HTTTP GET request failed: %s\n",err)
+		return
 	}
+	defer response.Body.Close()
+	body,err:=ioutil.ReadAll(response.Body)
+	if err!=nil{
+		fmt.Printf("Failed to read response body: %s\n",err)
+		return
+	}
+	var post Post
+	err=json.Unmarshal(body,&post)
+	if err!=nil{
+		fmt.Printf("Failed to parse JSON: %s\n",err)
+		return
+	}
+	fmt.Printf("UserID: %d\n",post.UserID);
+	fmt.Printf("ID: %d\n",post.ID);
+	fmt.Printf("Title: %s\n",post.Title);
+	fmt.Printf("Body: %s\n",post.Body);
 }
