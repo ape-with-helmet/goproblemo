@@ -70,6 +70,7 @@ func main(){
 		fmt.Printf("9");
 		go func(p*Philosopher) {
 			defer wg.Done()
+			fmt.Printf("!");
 			p.dine(table)
 		}(table.philosophers[i])
 		fmt.Printf("10");
