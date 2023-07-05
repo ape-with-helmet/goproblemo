@@ -1,4 +1,5 @@
-package main
+package interfaces
+
 import (
 	"fmt"
 	"math"
