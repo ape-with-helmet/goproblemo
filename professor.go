@@ -32,6 +32,7 @@ func (p*Philosopher)eat(){
 	p.diningCycles++
 }
 func (p*Philosopher) dine (table*DiningTable) {
+	fmt.Printf("!");
 	for p.diningCycles<maxDiningCycles{
 		p.think()
 		table.waiter.Lock()
@@ -40,27 +41,37 @@ func (p*Philosopher) dine (table*DiningTable) {
 	}
 }
 func main(){
+	fmt.Printf("1");
 	table:=&DiningTable{
 		philosophers: make([]*Philosopher, numphilosophers),
 		waiter: &sync.Mutex{},
 	}
+	fmt.Printf("2");
 	forks:=make([]*sync.Mutex,numphilosophers)
+	fmt.Printf("3");
 	for i := 0; i < numphilosophers; i++ {
 		forks[i]=&sync.Mutex{}
+		fmt.Printf("4");
 	}
+	fmt.Printf("5");
 	for i := 0; i < numphilosophers; i++ {
 		table.philosophers[i]=&Philosopher{
 			id: i,
 			leftfork: forks[i],
 			rightfork: forks[(i+1)%numphilosophers],
 		}
+		fmt.Printf("6");
 	}
 	var wg sync.WaitGroup
+	fmt.Printf("7");
 	wg.Add(numphilosophers)
+	fmt.Printf("8");
 	for i := 0; i < numphilosophers; i++ {
+		fmt.Printf("9");
 		go func(p*Philosopher) {
 			defer wg.Done()
 			p.dine(table)
 		}(table.philosophers[i])
+		fmt.Printf("10");
 	}
 }
