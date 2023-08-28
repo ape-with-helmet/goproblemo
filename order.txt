@@ -6,5 +6,5 @@
 6. web server
 7. interfaces
 8. dining philosopher
-9. checkpoint
+9. worker
 10. http request 
