@@ -2,3 +2,9 @@
 2. largest prime factor
 3. largest palindrome
 4. special pythogorean triplet
+5. maps
+6. web server
+7. interfaces
+8. dining philosopher
+9. checkpoint
+10. http request 
