@@ -4,12 +4,7 @@ import(
     //"math"
 ) 
 func LPF(n int) int {
-    largest :=1
-    for n%2==0{
-        largest =2
-        n/=2
-    }
-    for i:=3;i<=n;i+=2{
+    for i:=2;i<=n;i++{
         for n%i==0{
             largest =i
             n/=i
