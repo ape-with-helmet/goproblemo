@@ -4,6 +4,7 @@ import(
     //"math"
 ) 
 func LPF(n int) int {
+    var largest int
     for i:=2;i<=n;i++{
         for n%i==0{
             largest =i
