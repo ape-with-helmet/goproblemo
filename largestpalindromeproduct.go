@@ -20,9 +20,6 @@ func largestpalindromeproduct(n int) (int,int,int){
 	for i := n; i >= 10; i-- {
 		for j := i; j >= 10; j-- {
 			product:=i*j
-			if product<largestPalindrome{
-				break
-			}
 			if ispalindrome(product)&&product>largestPalindrome{
 				largestPalindrome=product
 				multiplicant1=i
